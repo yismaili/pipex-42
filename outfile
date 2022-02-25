@@ -1,1 +1,14 @@
-pareint
+total 96
+drwxr-xr-x  13 yismaili  candidate    442 Feb 25 20:52 .
+drwxr-xr-x  14 yismaili  candidate    476 Feb 25 15:13 ..
+-rw-r--r--@  1 yismaili  candidate   6148 Feb 24 12:37 .DS_Store
+drwxr-xr-x  12 yismaili  candidate    408 Feb 24 12:37 .git
+drwxr-xr-x   3 yismaili  candidate    102 Feb 21 13:02 .vscode
+-rwxr-xr-x   1 yismaili  candidate  13812 Feb 25 20:52 a.out
+-rwxr-xr-x   1 yismaili  candidate   1938 Feb 23 15:36 ft_split.c
+-rw-r--r--   1 yismaili  candidate      6 Feb 24 11:29 infile
+-rw-r--r--   1 yismaili  candidate   1033 Feb 25 20:10 lol.c
+-rw-r--r--   1 yismaili  candidate      0 Feb 25 21:12 outfile
+-rw-r--r--@  1 yismaili  candidate   2914 Feb 25 20:12 pipex.c
+-rw-r--r--   1 yismaili  candidate   1620 Feb 25 20:13 pipex.h
+-rw-r--r--   1 yismaili  candidate   2062 Feb 24 12:20 utils.c

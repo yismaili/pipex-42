@@ -38,44 +38,46 @@ char    **git_path(char **a_env)
 
 char	*exec_cmd(char *cmd, char **a_env)
 {
-	char	*file;
+		char	*bin;
 	int		i;
     char    **args;
     char	*arg;
+	char *temp;
 	char **path = git_path(a_env);
     args = ft_split(cmd, ' ');
+	bin = strdup(args[0]);
 	while (path[i] != NULL)
 	{
         arg = ft_strjoin(path[i], "/");
-		file = ft_strjoin(&arg[i], cmd);
-		if (access(file, F_OK))
-            execve(file, args, a_env);
-		free(file);
+		temp = ft_strjoin(arg, bin);
+		free(arg);
+		free(args[0]);
+		args[0] = temp;
+		if (access(args[0], F_OK) == 0)
+		{
+			execve(args[0], args, a_env);
+		}
 		i++;
 	}
 	return (NULL);
 }
 void     child_process(int f1, int end[2], char **av, char **a_env)
 {
+        close(end[0]);
         dup2(f1, STDIN_FILENO);
         dup2(end[1], STDOUT_FILENO);
-        close(end[0]);
-        close(f1);
-        printf("cheld\n");
 		exec_cmd(av[2], a_env);
-        if(!&exec_cmd)
+         if(!&exec_cmd)
             ft_die("command not found");
 }
 
 void     parent_process(int f2, int end[2], char **av, char **a_env)
 {
-       wait(0);
-        dup2(f2, STDOUT_FILENO);
-        dup2(end[0], STDIN_FILENO);
         close(end[1]);
-        close(f2);
-        printf("pareint\n");
+        dup2(end[0], STDIN_FILENO);
+        dup2(f2, STDOUT_FILENO);
 		exec_cmd(av[3], a_env);
+         printf("pareint\n");
         if(!&exec_cmd)
             ft_die("command not found");
 }
@@ -87,8 +89,6 @@ void ft_pipex(int f1, int f2, char **av, char **a_env)
 
     pipe(end);
     pid = fork();
-    if (pipe(end) == -1)
-		ft_die("pipe");
 	if (pid < 0)
 		ft_die("fork");
     if (pid == 0)
@@ -97,6 +97,7 @@ void ft_pipex(int f1, int f2, char **av, char **a_env)
     }
     else
     {
+        wait(0);
         parent_process(f2, end, av, a_env);
     }
 }

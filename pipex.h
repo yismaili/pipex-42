@@ -13,12 +13,13 @@
 #ifndef PIPEX_H
 # define PIPEX_H
 
-#include <sys/wait.h> /* wait */
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>   /* read, write, pipe, _exit */
-#include <string.h>
-#include <fcntl.h>
+# include <stdio.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <signal.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <string.h>
 
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *s);
