@@ -1,12 +1,1 @@
-Makefile
-a.out
-ft_split.c
-ft_split.o
-infile
-outfile
-pipex
-pipex.c
-pipex.h
-pipex.o
-utils.c
-utils.o
+/Users/yismaili/Desktop/pipex
