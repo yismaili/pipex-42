@@ -39,13 +39,13 @@ char    **git_path(char **a_env)
 char	*exec_cmd(char *cmd, char **a_env)
 {
 		char	*bin;
-	int		i;
+	int		i = 0;
     char    **args;
     char	*arg;
 	char *temp;
 	char **path = git_path(a_env);
     args = ft_split(cmd, ' ');
-	bin = strdup(args[0]);
+	bin = ft_strdup(args[0]);
 	while (path[i] != NULL)
 	{
         arg = ft_strjoin(path[i], "/");

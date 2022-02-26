@@ -26,6 +26,7 @@ size_t	ft_strlen(const char *s);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_split(char const *s, char c);
+char	*ft_strdup(const char *s1);
 void ft_die(char *s);
 void ft_pipex(int f1, int f2, char **av, char **a_env);
 char	*exec_cmd(char *cmd, char **a_env);
